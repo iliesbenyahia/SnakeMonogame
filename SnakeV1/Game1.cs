@@ -27,7 +27,7 @@ namespace SnakeV1
         {
             // TODO: Add your initialization logic here
             base.Initialize();
-            _snake = new snake(0, 0, _graphics, _headTexture, _headTexture);
+            _snake = new snake(45, 39, _graphics, _headTexture, _headTexture);
         }
 
         protected override void LoadContent()
@@ -45,14 +45,32 @@ namespace SnakeV1
             // TODO: Add your update logic here
 
             base.Update(gameTime);
+            if (Keyboard.GetState().IsKeyDown(Keys.Up))
+            {
+                _snake.bodyParts[0].futureDirection = "up";
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.Down))
+            {
+                _snake.bodyParts[0].futureDirection = "down";
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.Right))
+            {
+                _snake.bodyParts[0].futureDirection = "right";
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.Left))
+            {
+                _snake.bodyParts[0].futureDirection = "left";
+            }
+            _snake.move();
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             _spriteBatch.Begin();
-            _spriteBatch.Draw(_headTexture, new Vector2(_snake.xPos, _snake.yPos), Color.Wheat);
-            _spriteBatch.DrawString(_testFont, "test", Vector2.Zero, Color.Black);
+            _spriteBatch.Draw(_headTexture, new Vector2(_snake.bodyParts[0].xPosition, _snake.bodyParts[0].yPosition), Color.Wheat);
+            _spriteBatch.DrawString(_testFont, "X pos : " + _snake.bodyParts[0].xPosition, new Vector2(0,0), Color.Black);
+            _spriteBatch.DrawString(_testFont, "Y pos : " + _snake.bodyParts[0].yPosition, new Vector2(0, 20), Color.Black);
             _spriteBatch.End();
             // TODO: Add your drawing code here
 
