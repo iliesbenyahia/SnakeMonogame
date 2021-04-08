@@ -23,14 +23,34 @@ namespace SnakeV1
             length = 0;
             direction = "down";
             bodyParts.Add(new snakePart(direction, direction, xStartPos, yStartPos)); //première instance pour la tête du serpent
+            bodyParts[0].isNew = false;
         }
 
         public void move()
         {
-            for(int i=0; i<bodyParts.Count; i++)
+            for (int i=0; i<bodyParts.Count; i++)
             {
-                bodyParts[i].move();
+                bodyParts[i].move();      
             }
+            if (bodyParts[0].reachedTarget)
+            {
+                bodyParts[bodyParts.Count - 1].isNew = false;
+                for (int i = bodyParts.Count-1; i > 0; i = i - 1)
+                {
+                    bodyParts[i].currentDirection = bodyParts[i].futureDirection;
+                    bodyParts[i].futureDirection = bodyParts[i-1].currentDirection;
+                }
+            }
+   
+
+
+        }
+
+        public void grow()
+        {
+            int xNewPos = bodyParts[bodyParts.Count - 1].xPosition;
+            int yNewPos = bodyParts[bodyParts.Count - 1].yPosition;
+            bodyParts.Add(new snakePart(bodyParts[bodyParts.Count - 1].currentDirection, bodyParts[bodyParts.Count - 1].currentDirection, xNewPos, yNewPos));
         }
     }
 }

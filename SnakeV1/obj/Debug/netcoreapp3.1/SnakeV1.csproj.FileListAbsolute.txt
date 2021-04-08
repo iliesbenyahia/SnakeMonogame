@@ -36,3 +36,5 @@ C:\Users\Utilisateur\Desktop\Projets\SnakeV1\SnakeV1\obj\Debug\netcoreapp3.1\Sna
 C:\Users\Utilisateur\Desktop\Projets\SnakeV1\SnakeV1\obj\Debug\netcoreapp3.1\SnakeV1.pdb
 C:\Users\Utilisateur\Desktop\Projets\SnakeV1\SnakeV1\obj\Debug\netcoreapp3.1\SnakeV1.genruntimeconfig.cache
 C:\Users\Utilisateur\Desktop\Projets\SnakeV1\SnakeV1\bin\Debug\netcoreapp3.1\Content\test.xnb
+C:\Users\Utilisateur\Desktop\Projets\SnakeV1\SnakeV1\bin\Debug\netcoreapp3.1\Content\bricks.xnb
+C:\Users\Utilisateur\Desktop\Projets\SnakeV1\SnakeV1\bin\Debug\netcoreapp3.1\Content\red-apple.xnb

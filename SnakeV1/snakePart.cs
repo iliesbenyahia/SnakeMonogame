@@ -7,8 +7,10 @@ namespace SnakeV1
     class snakePart
     {
         public string currentDirection, futureDirection;
-        public int xPosition, yPosition, futureXPosition, futureYPosition;
-      
+        public int xPosition, yPosition;
+        public bool isNew;
+        public bool reachedTarget;
+
 
         public snakePart(string currentDirection, string futureDirection, int xStartPos, int yStartPos)
         {
@@ -16,26 +18,40 @@ namespace SnakeV1
             this.futureDirection = currentDirection;
             this.xPosition = (xStartPos / 40) * 40;
             this.yPosition = (yStartPos / 40) * 40;
+            isNew = true;
+            reachedTarget = false;
         }
 
         public void move()
         {
-           if(currentDirection == "up"){
-                yPosition -= 1;
-           }
-           if (currentDirection == "down"){
-                yPosition += 1;
-           }
-           if (currentDirection == "right"){
-                xPosition += 1;
-           }
-           if (currentDirection == "left"){
-                xPosition -= 1;
-           }
-
-           if(xPosition%40 == 0 && yPosition % 40 == 0){
-                currentDirection = futureDirection;
-           }
+            if (!isNew)
+            {
+                if (currentDirection == "up")
+                {
+                    yPosition -= 1;
+                }
+                if (currentDirection == "down")
+                {
+                    yPosition += 1;
+                }
+                if (currentDirection == "right")
+                {
+                    xPosition += 1;
+                }
+                if (currentDirection == "left")
+                {
+                    xPosition -= 1;
+                }
+                if (xPosition % 40 == 0 && yPosition % 40 == 0)
+                {
+                    reachedTarget = true;
+                    currentDirection = futureDirection;
+                }
+                else
+                {
+                    reachedTarget = false;
+                }
+            }         
         }
     }
 }
