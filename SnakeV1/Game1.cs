@@ -28,7 +28,7 @@ namespace SnakeV1
         {
             // TODO: Add your initialization logic here
             base.Initialize();
-            _snake = new snake(45, 39, _graphics, _headTexture, _headTexture);
+            _snake = new snake(0, 0, _graphics, _headTexture, _headTexture);
             theLevel = new level(5, 5);
         }
 
@@ -36,6 +36,7 @@ namespace SnakeV1
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _headTexture = Content.Load<Texture2D>("headSnake");
+            _bodyTexture = Content.Load<Texture2D>("bodySnake");
             _testFont = Content.Load<SpriteFont>("test");
             _appleTexture = Content.Load<Texture2D>("red-apple");
             // TODO: use this.Content to load your game content here
@@ -74,11 +75,7 @@ namespace SnakeV1
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             _spriteBatch.Begin();
-            _spriteBatch.Draw(_headTexture, new Vector2(_snake.bodyParts[0].xPosition, _snake.bodyParts[0].yPosition), Color.Wheat);
-            foreach (snakePart aSnakePart in _snake.bodyParts)
-            {
-                _spriteBatch.Draw(_headTexture, new Vector2(aSnakePart.xPosition, aSnakePart.yPosition), Color.Wheat);
-            }
+            _snake.Draw(_spriteBatch, _headTexture, _bodyTexture);
             _spriteBatch.Draw(_appleTexture, new Rectangle(theLevel.xApplePos, theLevel.yApplePos,40,40), Color.Wheat);
             _spriteBatch.DrawString(_testFont, "X pos : " + _snake.bodyParts[0].xPosition, new Vector2(0,0), Color.Black);
             _spriteBatch.DrawString(_testFont, "Y pos : " + _snake.bodyParts[0].yPosition, new Vector2(0, 20), Color.Black);

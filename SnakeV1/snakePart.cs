@@ -10,6 +10,8 @@ namespace SnakeV1
         public int xPosition, yPosition;
         public bool isNew;
         public bool reachedTarget;
+        public bool head;
+        public int speed = 2;
 
 
         public snakePart(string currentDirection, string futureDirection, int xStartPos, int yStartPos)
@@ -20,6 +22,7 @@ namespace SnakeV1
             this.yPosition = (yStartPos / 40) * 40;
             isNew = true;
             reachedTarget = false;
+            head = false;
         }
 
         public void move()
@@ -28,19 +31,19 @@ namespace SnakeV1
             {
                 if (currentDirection == "up")
                 {
-                    yPosition -= 1;
+                    yPosition -= 1 * speed;
                 }
                 if (currentDirection == "down")
                 {
-                    yPosition += 1;
+                    yPosition += 1 * speed;
                 }
                 if (currentDirection == "right")
                 {
-                    xPosition += 1;
+                    xPosition += 1 * speed;
                 }
                 if (currentDirection == "left")
                 {
-                    xPosition -= 1;
+                    xPosition -= 1 * speed;
                 }
                 if (xPosition % 40 == 0 && yPosition % 40 == 0)
                 {
