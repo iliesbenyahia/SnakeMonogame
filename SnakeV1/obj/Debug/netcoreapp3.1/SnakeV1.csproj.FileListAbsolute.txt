@@ -79,3 +79,4 @@ C:\Users\ilies\Desktop\Projets\SnakeMonogame\SnakeV1\obj\Debug\netcoreapp3.1\Sna
 C:\Users\ilies\Desktop\Projets\SnakeMonogame\SnakeV1\obj\Debug\netcoreapp3.1\SnakeV1.pdb
 C:\Users\ilies\Desktop\Projets\SnakeMonogame\SnakeV1\obj\Debug\netcoreapp3.1\SnakeV1.genruntimeconfig.cache
 C:\Users\ilies\Desktop\Projets\SnakeMonogame\SnakeV1\bin\Debug\netcoreapp3.1\Content\bodySnake.xnb
+C:\Users\Utilisateur\Desktop\Projets\SnakeV1\SnakeV1\bin\Debug\netcoreapp3.1\Content\bodySnake.xnb

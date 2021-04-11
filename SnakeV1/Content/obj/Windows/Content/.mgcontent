@@ -4,15 +4,15 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/ilies/Desktop/Projets/SnakeMonogame/SnakeV1/Content/bodySnake.png</File>
-    <File>C:/Users/ilies/Desktop/Projets/SnakeMonogame/SnakeV1/Content/bricks.png</File>
-    <File>C:/Users/ilies/Desktop/Projets/SnakeMonogame/SnakeV1/Content/headSnake.png</File>
-    <File>C:/Users/ilies/Desktop/Projets/SnakeMonogame/SnakeV1/Content/red-apple.png</File>
-    <File>C:/Users/ilies/Desktop/Projets/SnakeMonogame/SnakeV1/Content/test.spritefont</File>
+    <File>C:/Users/Utilisateur/Desktop/Projets/SnakeV1/SnakeV1/Content/../../bricks.png</File>
+    <File>C:/Users/Utilisateur/Desktop/Projets/SnakeV1/SnakeV1/Content/../../headSnake.png</File>
+    <File>C:/Users/Utilisateur/Desktop/Projets/SnakeV1/SnakeV1/Content/bodySnake.png</File>
+    <File>C:/Users/Utilisateur/Desktop/Projets/SnakeV1/SnakeV1/Content/red-apple.png</File>
+    <File>C:/Users/Utilisateur/Desktop/Projets/SnakeV1/SnakeV1/Content/test.spritefont</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
+    <File>bricks.png</File>
+    <File>headSnake.png</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

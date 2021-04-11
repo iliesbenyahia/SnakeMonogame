@@ -1,6 +1,6 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/ilies/Desktop/Projets/SnakeMonogame/SnakeV1/Content/bodySnake.png","C:/Users/ilies/Desktop/Projets/SnakeMonogame/SnakeV1/Content/bin/Windows/bodySnake.xnb","TextureProcessor","Texture2DContent",3003,6485,0,7975878
-"C:/Users/ilies/Desktop/Projets/SnakeMonogame/SnakeV1/Content/bricks.png","C:/Users/ilies/Desktop/Projets/SnakeMonogame/SnakeV1/Content/bin/Windows/bricks.xnb","TextureProcessor","Texture2DContent",52186,1440085,0,0807583
-"C:/Users/ilies/Desktop/Projets/SnakeMonogame/SnakeV1/Content/headSnake.png","C:/Users/ilies/Desktop/Projets/SnakeMonogame/SnakeV1/Content/bin/Windows/headSnake.xnb","TextureProcessor","Texture2DContent",676,6485,0,0031292
-"C:/Users/ilies/Desktop/Projets/SnakeMonogame/SnakeV1/Content/red-apple.png","C:/Users/ilies/Desktop/Projets/SnakeMonogame/SnakeV1/Content/bin/Windows/red-apple.xnb","TextureProcessor","Texture2DContent",32473,817301,0,047048
-"C:/Users/ilies/Desktop/Projets/SnakeMonogame/SnakeV1/Content/test.spritefont","C:/Users/ilies/Desktop/Projets/SnakeMonogame/SnakeV1/Content/bin/Windows/test.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21538,0,5415295
+"C:/Users/Utilisateur/Desktop/Projets/SnakeV1/SnakeV1/Content/../../bricks.png","C:/Users/Utilisateur/Desktop/Projets/SnakeV1/SnakeV1/Content/bin/Windows/bricks.xnb","TextureProcessor","Texture2DContent",2903,6965,0,176394
+"C:/Users/Utilisateur/Desktop/Projets/SnakeV1/SnakeV1/Content/../../headSnake.png","C:/Users/Utilisateur/Desktop/Projets/SnakeV1/SnakeV1/Content/bin/Windows/headSnake.xnb","TextureProcessor","Texture2DContent",1237,6485,0,0092295
+"C:/Users/Utilisateur/Desktop/Projets/SnakeV1/SnakeV1/Content/bodySnake.png","C:/Users/Utilisateur/Desktop/Projets/SnakeV1/SnakeV1/Content/bin/Windows/bodySnake.xnb","TextureProcessor","Texture2DContent",3003,6485,0,0091867
+"C:/Users/Utilisateur/Desktop/Projets/SnakeV1/SnakeV1/Content/red-apple.png","C:/Users/Utilisateur/Desktop/Projets/SnakeV1/SnakeV1/Content/bin/Windows/red-apple.xnb","TextureProcessor","Texture2DContent",32473,817301,0,0340577
+"C:/Users/Utilisateur/Desktop/Projets/SnakeV1/SnakeV1/Content/test.spritefont","C:/Users/Utilisateur/Desktop/Projets/SnakeV1/SnakeV1/Content/bin/Windows/test.xnb","FontDescriptionProcessor","SpriteFontContent",2008,21538,0,1173676

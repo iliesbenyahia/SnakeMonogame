@@ -9,7 +9,7 @@ namespace SnakeV1
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private snake _snake;
-        private Texture2D _headTexture, _bodyTexture, _appleTexture;
+        private Texture2D _headTexture, _bodyTexture, _appleTexture, _wallTexture;
         private SpriteFont _testFont;
         private level theLevel;
         public string test;
@@ -28,14 +28,15 @@ namespace SnakeV1
         {
             // TODO: Add your initialization logic here
             base.Initialize();
-            _snake = new snake(0, 0, _graphics, _headTexture, _headTexture);
-            theLevel = new level(5, 5);
+            _snake = new snake(45, 45, _graphics, _headTexture, _headTexture);
+            theLevel = new level(10, 10);
         }
 
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _headTexture = Content.Load<Texture2D>("headSnake");
+            _wallTexture = Content.Load<Texture2D>("bricks");
             _bodyTexture = Content.Load<Texture2D>("bodySnake");
             _testFont = Content.Load<SpriteFont>("test");
             _appleTexture = Content.Load<Texture2D>("red-apple");
@@ -65,8 +66,13 @@ namespace SnakeV1
             {
                 _snake.bodyParts[0].futureDirection = "left";
             }
-            theLevel.update(_snake);
-            _snake.move();
+            if (_snake.isAlive)
+            {
+                theLevel.update(_snake);
+                _snake.move();
+                
+            }
+
             
 
         }
@@ -76,12 +82,16 @@ namespace SnakeV1
             GraphicsDevice.Clear(Color.CornflowerBlue);
             _spriteBatch.Begin();
             _snake.Draw(_spriteBatch, _headTexture, _bodyTexture);
+            theLevel.Draw(_spriteBatch, _wallTexture);
             _spriteBatch.Draw(_appleTexture, new Rectangle(theLevel.xApplePos, theLevel.yApplePos,40,40), Color.Wheat);
-            _spriteBatch.DrawString(_testFont, "X pos : " + _snake.bodyParts[0].xPosition, new Vector2(0,0), Color.Black);
-            _spriteBatch.DrawString(_testFont, "Y pos : " + _snake.bodyParts[0].yPosition, new Vector2(0, 20), Color.Black);
-            _spriteBatch.DrawString(_testFont, "X apple pos : " + theLevel.xApplePos, new Vector2(0, 40), Color.Black);
-            _spriteBatch.DrawString(_testFont, "Y apple pos : " + theLevel.yApplePos, new Vector2(0, 60), Color.Black);
-            _spriteBatch.DrawString(_testFont, "Y pos : " + _snake.bodyParts[0].yPosition, new Vector2(0, 20), Color.Black);
+            _spriteBatch.DrawString(_testFont, "X pos : " + _snake.bodyParts[0].xUnitPosition, new Vector2(0,0), Color.Black);
+            _spriteBatch.DrawString(_testFont, "Y pos : " + _snake.bodyParts[0].yUnitPosition, new Vector2(0, 20), Color.Black);
+            if (_snake.bodyParts.Count > 1)
+            {
+                _spriteBatch.DrawString(_testFont, "X pos body: " + _snake.bodyParts[1].xUnitPosition, new Vector2(0, 40), Color.Black);
+                _spriteBatch.DrawString(_testFont, "Y pos body: " + _snake.bodyParts[1].yUnitPosition, new Vector2(0, 60), Color.Black);
+            }
+           
             _spriteBatch.End();
             // TODO: Add your drawing code here
 

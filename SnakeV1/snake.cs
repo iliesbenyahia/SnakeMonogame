@@ -8,8 +8,7 @@ namespace SnakeV1
 {
     class snake
     {
-        public bool isAlive, allowMoving = true; 
-        private int length; //longueur du serpent sans compter la tête
+        public bool isAlive, allowMoving;
         private GraphicsDeviceManager _graphics;
         public List<snakePart> bodyParts;
         private Texture2D _headTexture, _bodyTexture;
@@ -17,42 +16,56 @@ namespace SnakeV1
         public snake(int xStartPos, int yStartPos, GraphicsDeviceManager gd, Texture2D head, Texture2D body)
         {
             bodyParts = new List<snakePart>();
+            allowMoving = true;
+            isAlive = true;
             _graphics = gd;
             _headTexture = head;
             _bodyTexture = body;
-            length = 0;
             direction = "down";
             bodyParts.Add(new snakePart(direction, direction, xStartPos, yStartPos)); //première instance pour la tête du serpent
             bodyParts[0].isNew = false;
             bodyParts[0].head = true;
         }
 
-        public void move()
+        public void dieIfAutoCollides()
         {
-            if (allowMoving)
+            
+            foreach(snakePart snakePart in bodyParts)
             {
-                for (int i = 0; i < bodyParts.Count; i++)
+                if (!snakePart.head && !snakePart.isNew  && bodyParts[0].xUnitPosition == snakePart.xUnitPosition && bodyParts[0].yUnitPosition == snakePart.yUnitPosition)
                 {
-                    bodyParts[i].move();
-                }
-                if (bodyParts[0].reachedTarget)
-                {
-                    bodyParts[bodyParts.Count - 1].isNew = false;
-                    for (int i = bodyParts.Count - 1; i > 0; i = i - 1)
-                    {
-                        bodyParts[i].currentDirection = bodyParts[i].futureDirection;
-                        bodyParts[i].futureDirection = bodyParts[i - 1].currentDirection;
-                    }
+                    die();
                 }
             }
+        }
+        public void move()
+        {
 
+            
+            for (int i = 0; i < bodyParts.Count; i++)
+            {
+                bodyParts[i].move();
+            }
+            if (bodyParts[0].reachedTarget)
+            {
+                bodyParts[bodyParts.Count - 1].isNew = false;
+                for (int i = bodyParts.Count - 1; i > 0; i = i - 1)
+                {
+                    bodyParts[i].currentDirection = bodyParts[i].futureDirection;
+                    bodyParts[i].futureDirection = bodyParts[i - 1].currentDirection;
+                }
+            }
+            dieIfAutoCollides();
         }
 
         public void grow()
         {
-            int xNewPos = bodyParts[bodyParts.Count - 1].xPosition;
-            int yNewPos = bodyParts[bodyParts.Count - 1].yPosition;
-            bodyParts.Add(new snakePart(bodyParts[bodyParts.Count - 1].currentDirection, bodyParts[bodyParts.Count - 1].currentDirection, xNewPos, yNewPos));
+            if (isAlive)
+            {
+                int xNewPos = bodyParts[bodyParts.Count - 1].xPosition;
+                int yNewPos = bodyParts[bodyParts.Count - 1].yPosition;
+                bodyParts.Add(new snakePart(bodyParts[bodyParts.Count - 1].currentDirection, bodyParts[bodyParts.Count - 1].currentDirection, xNewPos, yNewPos));
+            }
         }
 
         public void Draw(SpriteBatch _spriteBatch, Texture2D _headTexture, Texture2D _bodyTexture)
@@ -87,6 +100,11 @@ namespace SnakeV1
                     _spriteBatch.Draw(_headTexture, new Vector2 (bodyParts[0].xPosition+20, bodyParts[0].yPosition+20),new Rectangle(0, 0, 40, 40), Color.White, angle, origin, 1.0f, SpriteEffects.None, 1);
                 }
             }
+        }
+
+        public void die()
+        {
+            isAlive = false;
         }
     }
 }
