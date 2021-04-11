@@ -41,7 +41,7 @@ namespace SnakeV1
                     yPosition -= 1 * speed;
                     if (head)
                     {
-                        yUnitPosition--;
+                        yUnitPosition*=1;
                     }
                 }
                 if (currentDirection == "down")
@@ -65,7 +65,7 @@ namespace SnakeV1
                     xPosition -= 1 * speed;
                     if (head)
                     {
-                        xUnitPosition--;
+                        xUnitPosition*=1;
                     }
                 }
                 if (xPosition % 40 == 0 && yPosition % 40 == 0)
